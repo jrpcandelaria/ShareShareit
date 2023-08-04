@@ -1,0 +1,117 @@
+# Set Vehicle Base class that contains all the methods and attributes
+class Vehicle:
+    def __init__(self):
+        self.vehicle_make = ""
+        self.vehicle_model = ""
+
+    def set_vehicle_make(self, make):
+        self.vehicle_make = make
+
+    def set_vehicle_model(self, model):
+        self.vehicle_model = model
+
+    def get_vehicle_make(self):
+        return self.vehicle_make
+
+    def get_vehicle_model(self):
+        return self.vehicle_model
+
+
+# Car child class
+class Car(Vehicle):
+    def __init__(self):
+        super().__init__()
+        self.car_door = ""
+
+    def set_car_door(self, door):
+        self.car_door = door
+
+    def get_car_door(self):
+        return self.car_door
+
+
+# Pickup Truck child class
+class PickupTruck(Vehicle):
+    def __init__(self):
+        super().__init__()
+        self.bed_length = ""
+
+    def set_bed_length(self, length):
+        self.bed_length = length
+
+    def get_bed_length(self):
+        return self.bed_length
+
+#Welcome message
+def main():
+    print("Welcome to Bellevue University Virtual Garage.")
+
+    cars = []
+    pickup_trucks = []
+
+    while True:
+       # Menu 
+        print("MENU:")
+        print("1. Make a car")
+        print("2. Make a Pickup Truck")
+        print("3. Exit")
+
+        choice = input("Please enter your choice (1/2/3): ")
+
+      
+        if choice == "1":
+          # Get user input for car
+            car = Car()
+            make = input("Please enter the car make: ")
+            model = input("Please enter the car model: ")
+            door = input("Please enter the number of car doors: ")
+
+            car.set_vehicle_make(make)
+            car.set_vehicle_model(model)
+            car.set_car_door(door)
+
+            cars.append(car)
+        
+          # Output the user input for car
+            print("The Make is", car.get_vehicle_make())
+            print("The model is", car.get_vehicle_model())
+            print("The number of doors is", car.get_car_door())
+            print("Your car has been added to the virtual garage successfully!")
+            print()
+
+        elif choice == "2":
+          
+          # Get user input for pickup truck
+            pickup_truck = PickupTruck()
+            make = input("Please enter the pickup truck make: ")
+            model = input("Please enter the pickup truck model: ")
+            length = input("Please enter the pickup truck bed length: ")
+
+            pickup_truck.set_vehicle_make(make)
+            pickup_truck.set_vehicle_model(model)
+            pickup_truck.set_bed_length(length)
+
+            pickup_trucks.append(pickup_truck)
+         
+          # Output the user input for truck
+
+            print("The Make is", pickup_truck.get_vehicle_make())
+            print("The model is", pickup_truck.get_vehicle_model())
+            print("The bed length is", pickup_truck.get_bed_length())
+            print("Your pickup truck has been added to the virtual garage successfully!")
+            print()
+
+        elif choice == "3":
+            print("Thank you! You have exited the program.")
+            break
+
+        else:
+            print("Sorry, Invalid choice. Please try again.")
+            print()
+
+
+if __name__ == "__main__":
+    # Execute the main function
+    main()
+
+
